@@ -14,6 +14,12 @@ for i in letters:
     with open(uri, 'r') as f:
         data = json.load(f)
         len_ += len(data)
+        print len(data)
         
 print len_
 print len(letters)
+
+
+# with open("formatted-words/data.json", 'r') as f:
+#     data = json.load(f)
+#     print len(data)

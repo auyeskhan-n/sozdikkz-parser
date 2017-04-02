@@ -10,7 +10,7 @@ import collections
 word = []
 len_ = []
 
-for i in range(0, 11565, 50):
+for i in range(0, 50, 50):
 	url = "https://sozdik.kz/suggest/kk/ru/%D0%90/2/" + str(i) + "/50"
 	req = requests.get(url).json()["suggests"]
 	suggests_len = len(req)
@@ -23,6 +23,7 @@ for i in range(0, 11565, 50):
 			tr = requests.get(url).json()["translation"]
 			soup = BeautifulSoup(tr, "html5lib")
 			letters = soup.get_text().encode("utf-8")
+			#print letters.find("\n");
 
 			dict_ = collections.OrderedDict()
 			dict_["word"] = r.encode("utf-8")
@@ -32,5 +33,7 @@ for i in range(0, 11565, 50):
 			word.append(dict_)
 
 
+'''
 with open('data.json', 'w') as outfile:
 	json.dump(word, outfile, indent = 4, ensure_ascii=False, sort_keys=False)
+'''
